@@ -151,7 +151,7 @@ jobs:
           (cd "$d" && sha256sum * > SHA256SUMS.txt && cat SHA256SUMS.txt)
 
       - name: Upload build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: jesussaves-v${{ env.VERSION }}-windows-x64
           path: dist/*
