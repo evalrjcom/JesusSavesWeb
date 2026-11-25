@@ -1305,7 +1305,7 @@ nsws_window_command(HWND hwnd,
 		/* JESUSSAVES-v1.1.1 FIX: the Windows address bar never used the
 		 * web-search core, so plain words were rejected as bad URLs and
 		 * DuckDuckGo search (and Bible references) never ran from it.
-		 * Addresses still navigate directly; verses open as KJV passages;
+		 * Addresses still navigate directly; verses open as NKJV passages on Bible Gateway;
 		 * everything else is searched. */
 		err = search_web_omni(term, SEARCH_WEB_OMNI_NONE, &url);
 

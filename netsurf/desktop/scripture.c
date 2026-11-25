@@ -501,7 +501,7 @@ char *scripture_url(const scripture_ref *ref)
 	char label[96], *url;
 	size_t i, o;
 	static const char head[] = "https://www.biblegateway.com/passage/?search=";
-	static const char tail[] = "&version=KJV";
+	static const char tail[] = "&version=NKJV";
 
 	scripture_label(ref, label, sizeof(label));
 	url = malloc(sizeof(head) + sizeof(tail) + 3 * strlen(label));

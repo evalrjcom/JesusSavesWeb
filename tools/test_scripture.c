@@ -33,10 +33,10 @@ int main(void){
  scripture_parse("Rom 3:23-24",11,&r); scripture_text(&r,b,sizeof b); printf("%s\n",b);
  scripture_parse("Ps 23",5,&r); scripture_text(&r,b,60); printf("[trunc60] %s\n",b); OK(strlen(b)<=59 && strstr(b,"...")!=NULL);
  scripture_parse("1 Cor 13:4-7",12,&r); u=scripture_url(&r); printf("%s\n",u);
- OK(strcmp(u,"https://www.biblegateway.com/passage/?search=1%20Corinthians%2013%3A4-7&version=KJV")==0); free(u);
+ OK(strcmp(u,"https://www.biblegateway.com/passage/?search=1%20Corinthians%2013%3A4-7&version=NKJV")==0); free(u);
  /* preview via link text and via url */
  OK(scripture_preview("John 3:16",NULL,b,sizeof b)); printf("%s\n",b);
- OK(scripture_preview("click here","https://www.biblegateway.com/passage/?search=John%2014%3A6&version=KJV",b,sizeof b)); printf("%s\n",b);
+ OK(scripture_preview("click here","https://www.biblegateway.com/passage/?search=John%2014%3A6&version=NKJV",b,sizeof b)); printf("%s\n",b);
  OK(strncmp(b,"John 14:6 (KJV): Jesus saith",28)==0);
  OK(scripture_preview("click here","https://www.esv.org/1+John+1:9/",b,sizeof b)); printf("%s\n",b);
  OK(!scripture_preview("Read more","https://example.com/john/3",b,sizeof b));

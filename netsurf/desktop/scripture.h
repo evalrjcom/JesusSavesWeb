@@ -51,7 +51,7 @@ const char *scripture_book_name(int book);
 /** Write "John 3:16-18" style label into buf. */
 void scripture_label(const scripture_ref *ref, char *buf, size_t buflen);
 
-/** malloc'd Bible Gateway KJV passage URL, or NULL on out of memory. */
+/** malloc'd Bible Gateway NKJV passage URL, or NULL on out of memory. */
 char *scripture_url(const scripture_ref *ref);
 
 /**

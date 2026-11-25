@@ -8,6 +8,7 @@ JesusSaves is a modified build of NetSurf 3.11 (GPLv2). NetSurf is the work of t
 - **Fix:** Windows frontend never called `search_web_init()` and the address bar bypassed `search_web_omni()`; plain-word search from the address bar never worked. Both fixed; `search_url_bar` now defaults to on. Address-bar text is length-bounded (stack VLA) and trimmed.
 - **Link flags:** `-Os -ffunction-sections -fdata-sections`, `--gc-sections`, `--dynamicbase --high-entropy-va --nxcompat`, `-fstack-protector-strong -D_FORTIFY_SOURCE=2 -lssp`, `--no-insert-timestamp`; `-g` removed; `NETSURF_STRIP_BINARY := YES` with a matching cross `strip`.
 - Version bumped to 1.1.1 in version.c, Makefile.defaults, useragent.c, installer (VERSIONBUILD), make scripts and change markers; changelog renamed `JESUSSAVES_CHANGELOG_v1.1.1.md`.
+- **NKJV by default (address bar):** typed references open `version=NKJV` on Bible Gateway; the hover preview stays the built-in public-domain KJV (the NKJV text is copyrighted and is not embedded).
 - Tests: `tools/test_scripture.c` (parser, URL, KJV text, preview; ASan/UBSan clean); Wine check of hover preview and address bar.
 
 ## v1.1.0 baseline

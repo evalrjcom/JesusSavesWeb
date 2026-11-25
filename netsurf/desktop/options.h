@@ -156,7 +156,7 @@ NSOPTION_STRING(homepage_url, NULL)
 NSOPTION_BOOL(search_url_bar, true)
 
 /* JESUSSAVES-v1.1.1: scripture features (see desktop/scripture.h) */
-/** Open Bible references typed in the URL bar (e.g. John 3:16) as KJV passages */
+/** Open Bible references typed in the URL bar (e.g. John 3:16) as NKJV passages on Bible Gateway */
 NSOPTION_BOOL(scripture_urlbar, true)
 /** Show the KJV text in the status bar when hovering a link to a Bible reference */
 NSOPTION_BOOL(scripture_preview, true)

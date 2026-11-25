@@ -442,7 +442,7 @@ search_web_omni(const char *term,
 	}
 
 	/* JESUSSAVES-v1.1.1: a Bible reference such as "John 3:16" or "1 Cor 13"
-	 * opens the passage (KJV) instead of being searched or treated as a host.
+	 * opens the passage (NKJV on Bible Gateway; preview stays KJV) instead of being searched or treated as a host.
 	 * Checked before the address test because "john3:16" would otherwise
 	 * look like host:port. */
 	if ((flags & SEARCH_WEB_OMNI_SEARCHONLY) == 0 &&
