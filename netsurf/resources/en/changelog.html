@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JesusSaves | About Changelog</title>
+<link rel="stylesheet" type="text/css" href="resource:internal.css">
+<style>
+h2 span.date { font-weight: normal; font-size: 80%; }
+td.id { white-space: nowrap; padding-right: 1em; vertical-align: top; }
+</style>
+</head>
+
+<body class="ns-even-bg ns-even-fg ns-border">
+
+<h1 class="ns-border">JesusSaves Changelog</h1>
+
+<p>JesusSaves is a modified build of <strong>NetSurf 3.11</strong>. NetSurf is the work of the
+NetSurf Developers (see <a href="about:credits">credits</a>); the changes listed here were
+made by the <strong>JesusSaves project</strong> in 2026. JesusSaves is free software under the GNU General Public
+Licence version 2 (<a href="about:licence">licence</a>).</p>
+
+<h2 class="ns-border">1.1.1 <span class="date">&mdash; November 2026</span></h2>
+<ul>
+<li><strong>Scripture-aware address bar:</strong> type a reference such as <code>John 3:16</code>, <code>1 Cor 13:4-7</code> or <code>Ps 23</code> and the passage opens (KJV on Bible Gateway). References are checked against the KJV, so ordinary searches are not hijacked.</li>
+<li><strong>Verse preview:</strong> hover a link whose text (or address) is a Bible reference and the King James text appears in the status bar. The whole KJV is built in and works offline.</li>
+<li><strong>Fixed:</strong> the Windows address bar never used web search, so typing plain words failed. It now searches DuckDuckGo; addresses still open directly.</li>
+<li>Smaller, hardened Windows build: size-optimised, ASLR/DEP/high-entropy ASLR, stack protector and FORTIFY checks, stripped by default, reproducible timestamps.</li>
+<li>Address-bar input is length-checked and trimmed.</li>
+</ul>
+
+<h2 class="ns-border">1.1.0 <span class="date">&mdash; November 2026</span></h2>
+<ul>
+<li>Renamed to <strong>JesusSaves</strong>; all Hunix references removed.</li>
+<li>Search is DuckDuckGo only; hardened search-provider parser and URL builder (heap overflow fixed); plain words and verses such as &ldquo;John 3:16&rdquo; now search instead of being treated as host names.</li>
+<li>Home page and default bookmarks replaced with Bible reference, evangelism, Baptist and sound-teaching sites, including christpath.org.</li>
+<li>DNS locked to Cloudflare 1.1.1.3 / 1.0.0.3 (DNS-over-HTTPS fallback; fails closed; not user-changeable). An HTTP proxy resolves names itself and bypasses this.</li>
+<li>Windows: statically linked 64-bit build; bounds-checked path handling, UTF-8 command line, file URL escaping, window-class checks, new installer.</li>
+<li>User agent carries <code>JesusSaves/1.1.0</code>.</li>
+</ul>
+
+<h2 class="ns-border">1.0.2 <span class="date">&mdash; November 2026</span></h2>
+<ul>
+<li>Renamed to <strong>JesusSaves</strong> everywhere users see it &ndash; window titles, About dialogs, messages, error pages,
+default bookmarks folder, desktop entry and Windows executable (<code>JesusSaves.exe</code>).</li>
+<li>New JesusSaves logo, application icon, favicon and welcome-page banner.</li>
+<li>About dialogs now show the JesusSaves version and <strong>compile date</strong>, credit the NetSurf
+Developers, and state that the modifications were made by the JesusSaves project.</li>
+<li>New <code>about:changelog</code> page (this page), reachable from the About dialog and the Help menu.
+Help menu now opens the bundled pages (welcome, changelog, credits).</li>
+<li>User agent string carries <code>JesusSaves/1.0.2</code> next to the <code>NetSurf/3.11</code> token for site compatibility.</li>
+<li>Windows build keeps its profile in its own <code>JesusSaves</code> folder so it never mixes with a NetSurf install.</li>
+</ul>
+
+<h2 class="ns-border">1.0.1 <span class="date">&mdash; November 2026</span></h2>
+<ul>
+<li><strong>L1</strong> New <code>libnetsurf</code> make target: the browser core as a static library, for Linux and Windows.</li>
+<li><strong>B1</strong> Compiler versions such as <code>13-win32</code> no longer break the Makefile version test.</li>
+<li><strong>B2</strong> Fallback <code>inet_aton</code>/<code>inet_pton</code> no longer clash with <code>ws2_32</code> on Windows.</li>
+<li><strong>B3</strong> Redundant fallback prototypes no longer fail the headless build on current glibc.</li>
+<li><strong>B4</strong> Monkey front end: <code>WINDOW EXEC</code>/<code>WINDOW CLICK</code> returned after a bad-argument report instead of reading past <code>argv</code>.</li>
+</ul>
+
+<h2 class="ns-border">1.0.0 <span class="date">&mdash; November 2026</span></h2>
+<p>Security and robustness audit of NetSurf 3.11 and its libraries.</p>
+<ul>
+<li><strong>R1&ndash;R9</strong> RISC OS sprite decoder (<code>librosprite</code>) rewritten to validate every header field, bound every read and write, check every allocation and free everything on failure; a 12-byte image no longer aborts the browser.</li>
+<li><strong>F3</strong> Disc-cache metadata is read with a bounded line reader instead of unbounded <code>strlen</code>.</li>
+<li><strong>F4</strong> Disc-cache index: length overflow fixed, stale pointers cleared, leak fixed; a damaged index is now discarded and the browser starts with an empty cache instead of refusing to start.</li>
+<li><strong>F5</strong> URL database: out-of-bounds write on an empty read and several leaks fixed.</li>
+<li><strong>F1</strong> <code>libnsfb</code> X surface: use-after-free and connection leak fixed.</li>
+<li><strong>F2</strong> <code>content_destroy</code> no longer dereferences NULL after a failed clone.</li>
+<li><strong>F6</strong> GTK File &gt; Open: NULL filename guarded and paths escaped, so names containing <code>#</code>, <code>?</code> or <code>%</code> open correctly.</li>
+<li><strong>F7</strong> GTK downloads: two leaks fixed.</li>
+<li><strong>F8</strong> HTML tables: uninitialised struct member fixed.</li>
+<li><strong>F9</strong> <code>libwapcaplet</code> test suite builds against current libcheck.</li>
+</ul>
+
+<div class="footer ns-even-fg-subtle">
+<p class="ns-even-fg-faded ns-border">Copyright 2003&ndash;2023 The NetSurf Developers. JesusSaves modifications Copyright 2026 the JesusSaves project.</p>
+</div>
+
+</body>
+</html>

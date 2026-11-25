@@ -1,0 +1,7 @@
+# build outputs
+build/
+build-*/
+*.o
+*.a
+*.exe
+*.log
