@@ -22,7 +22,7 @@ if step zlib; then
   CHOST=$T ./configure --prefix=$P --static && make -j2 && make install && done_ zlib
 fi
 if step openssl; then
-  cd $D/openssl && ./Configure mingw64 no-shared no-tests --cross-compile-prefix=$T- --prefix=$P --openssldir=$P/ssl && make -j2 build_libs && make install_dev && done_ openssl
+  cd $D/openssl && ./Configure mingw64 no-shared no-tests --cross-compile-prefix=$T- --prefix=$P --openssldir=$P/ssl && make -j2 build_libs && make install_dev && { [ -d $P/lib64 ] && { cp -f $P/lib64/*.a $P/lib/; mkdir -p $P/lib/pkgconfig; cp -f $P/lib64/pkgconfig/*.pc $P/lib/pkgconfig/; }; true; } && done_ openssl
 fi
 if step cares; then
   cd $D/c-ares && rm -rf bld && cmake -S . -B bld $TC -DCARES_STATIC=ON -DCARES_SHARED=OFF -DCARES_BUILD_TOOLS=OFF -DCARES_BUILD_TESTS=OFF && cmake --build bld -j2 && cmake --install bld && done_ cares
@@ -46,7 +46,7 @@ if step curl; then
     --disable-ldap --disable-ldaps --disable-rtsp --disable-dict --disable-telnet \
     --disable-tftp --disable-pop3 --disable-imap --disable-smtp --disable-gopher --disable-mqtt \
     --disable-manual --disable-ftp --disable-file --disable-smb --disable-docs --disable-threaded-resolver \
-    && make -j2 && make install && done_ curl
+    && make -j2 -C lib && make -C lib install && make -C include install && make install-pkgconfigDATA && done_ curl
 fi
 if step tre; then
   cd $D/tre && { [ -f configure ] || ./utils/autogen.sh; }
@@ -55,4 +55,11 @@ if step tre; then
     && make -j2 -C lib && make -C lib install && make -C include install 2>/dev/null; true
   done_ tre
 fi
+# JesusSaves v1.1.1: fail loudly if anything is missing (set -e does not see failures inside the
+# `if step ...; then a && b && c; fi` chains above)
+for f in lib/libz.a lib/libssl.a lib/libcrypto.a lib/libcares.a lib/libexpat.a lib/libpng.a \
+         lib/libjpeg.a lib/libcurl.a lib/libtre.a lib/pkgconfig/libcurl.pc lib/pkgconfig/libssl.pc \
+         lib/pkgconfig/zlib.pc include/curl/curl.h include/openssl/ssl.h include/tre/regex.h; do
+  [ -f "$P/$f" ] || { echo "DEPS64 FAILED: missing $P/$f"; exit 1; }
+done
 echo DEPS64-PART1-DONE
