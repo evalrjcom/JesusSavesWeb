@@ -23,7 +23,7 @@ jobs:
     name: Project invariants
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check branding, DNS pin, search provider and version
         run: |
           set -eu
@@ -53,7 +53,7 @@ jobs:
     name: Scripture parser tests (ASan/UBSan)
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends zlib1g-dev
       - name: Build and run
         working-directory: netsurf
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install toolchain
         run: |
