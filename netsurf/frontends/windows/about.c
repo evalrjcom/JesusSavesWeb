@@ -40,7 +40,7 @@
 #include "windbg.h"
 
 /**
- * Set a control's text from a UTF-8 string (JESUSSAVES-v1.1.1).
+ * Set a control's text from a UTF-8 string (JESUSSAVES-v1.1.2).
  */
 static void about_set_text_utf8(HWND item, const char *utf8)
 {
@@ -62,7 +62,7 @@ static BOOL init_about_dialog(HWND hwnd)
 	HWND dlg_itm;
 	HFONT hFont;
 
-	/* JESUSSAVES-v1.1.1: version_str is "<ver> (<details>)": the heading shows
+	/* JESUSSAVES-v1.1.2: version_str is "<ver> (<details>)": the heading shows
 	 * "JesusSaves <ver>", the details (base, author, build date) go in the text field.
 	 * Text is converted from UTF-8 so the (c) sign displays correctly. */
 	const char *details = strchr(netsurf_version, ' ');
@@ -151,7 +151,7 @@ nsws_about_event_callback(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			EndDialog(hwnd, IDOK);
 			break;
 
-		case IDC_BTN_CHANGELOG: /* JESUSSAVES-v1.1.1 */
+		case IDC_BTN_CHANGELOG: /* JESUSSAVES-v1.1.2 */
 			nsws_window_go(hwnd, "about:changelog");
 			EndDialog(hwnd, IDOK);
 			break;

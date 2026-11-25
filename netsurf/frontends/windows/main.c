@@ -92,7 +92,7 @@ static int get_screen_dpi(void)
 static nserror get_config_home(char **config_home_out)
 {
 	TCHAR adPath[MAX_PATH]; /* appdata path */
-	char nsdir[] = "JesusSaves"; /* JESUSSAVES-v1.1.1: own profile dir, never mixes with a NetSurf install */
+	char nsdir[] = "JesusSaves"; /* JESUSSAVES-v1.1.2: own profile dir, never mixes with a NetSurf install */
 	HRESULT hres;
 
 	hres = SHGetFolderPath(NULL,
@@ -119,7 +119,7 @@ static nserror get_config_home(char **config_home_out)
 
 	*config_home_out = strdup(adPath);
 	if (*config_home_out == NULL) {
-		return NSERROR_NOMEM; /* JESUSSAVES-v1.1.1 AUDIT-FIX W4: was unchecked */
+		return NSERROR_NOMEM; /* JESUSSAVES-v1.1.2 AUDIT-FIX W4: was unchecked */
 	}
 
 	NSLOG(netsurf, INFO, "using config path \"%s\"", *config_home_out);
@@ -137,7 +137,7 @@ static nserror get_config_home(char **config_home_out)
  */
 static void die(const char *error)
 {
-	/* JESUSSAVES-v1.1.1 AUDIT-FIX W5: the message was thrown away and the
+	/* JESUSSAVES-v1.1.2 AUDIT-FIX W5: the message was thrown away and the
 	 * program vanished without a word (it has no console: -mwindows). */
 	MessageBoxA(NULL, error, "JesusSaves", MB_OK | MB_ICONERROR);
 	exit(1);
@@ -350,7 +350,7 @@ static nserror win32_to_unix_commandline(int *argc_out, char ***argv_out)
 		return NSERROR_INVALID;
 	}
 
-	/* JESUSSAVES-v1.1.1 AUDIT-FIX W7: argv is NULL terminated like a real
+	/* JESUSSAVES-v1.1.2 AUDIT-FIX W7: argv is NULL terminated like a real
 	 * argv, arguments are converted to UTF-8 (wcstombs() used the ANSI code
 	 * page, so non-ASCII URLs were mangled), failures free what was built,
 	 * and the argvw block is released. */
@@ -457,7 +457,7 @@ WinMain(HINSTANCE hInstance, HINSTANCE hLastInstance, LPSTR lpcli, int ncmd)
 	nslog_init(nslog_ensure, &argc, argv);
 
 	/* build resource path string vector */
-	/* JESUSSAVES-v1.1.1: the installer now installs into %PROGRAMFILES%\JesusSaves */
+	/* JESUSSAVES-v1.1.2: the installer now installs into %PROGRAMFILES%\JesusSaves */
 	respaths = nsws_init_resource("${APPDATA}\\JesusSaves:${PROGRAMFILES}\\JesusSaves\\:"NETSURF_WINDOWS_RESPATH);
 	if (respaths == NULL) {
 		/* W8: filepath_sfind(NULL, ...) used to be reached later */
@@ -499,13 +499,13 @@ WinMain(HINSTANCE hInstance, HINSTANCE hLastInstance, LPSTR lpcli, int ncmd)
 	ret = netsurf_init(NULL);
 	if (ret != NSERROR_OK) {
 		NSLOG(netsurf, INFO, "JesusSaves failed to initialise");
-		/* JESUSSAVES-v1.1.1: also reached when the fixed Cloudflare DNS
+		/* JESUSSAVES-v1.1.2: also reached when the fixed Cloudflare DNS
 		 * cannot be applied (libcurl without c-ares / DNS-over-HTTPS) */
 		die("JesusSaves failed to initialise its core.\n\nIf this keeps happening, reinstall JesusSaves.");
 		return 1;
 	}
 
-	/* JESUSSAVES-v1.1.1 FIX: the Windows frontend never called
+	/* JESUSSAVES-v1.1.2 FIX: the Windows frontend never called
 	 * search_web_init(), so the search core had no providers and every
 	 * search from the address bar failed with "InitFailed".  A NULL file
 	 * selects the built-in list, which is DuckDuckGo only. */

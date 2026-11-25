@@ -2,7 +2,7 @@
 
 [![Build and test](https://github.com/evalrjcom/JesusSavesWeb/actions/workflows/build.yml/badge.svg)](https://github.com/evalrjcom/JesusSavesWeb/actions/workflows/build.yml)
 
-JesusSaves v1.1.1 is a small, fast web browser based on NetSurf 3.11 (GPLv2), with a Windows static build.
+JesusSaves v1.1.2 is a small, fast web browser based on NetSurf 3.11 (GPLv2), with a Windows static build.
 
 - DuckDuckGo search only (address bar and home page)
 - Home page and default bookmarks point to Bible reference sites, evangelism and Baptist sites, and sound teaching, including christpath.org
@@ -22,8 +22,8 @@ JesusSaves v1.1.1 is a small, fast web browser based on NetSurf 3.11 (GPLv2), wi
 - **Project invariants:** no leftover references to the old project name, DNS pin still 1.1.1.3 / 1.0.0.3, DuckDuckGo the only search provider, one version everywhere.
 - **Scripture tests:** the Bible-reference parser and KJV lookup under ASan/UBSan.
 - **Static Windows build:** builds the exe, installer and static libraries, then checks that only Windows system DLLs are imported, ASLR/DEP are on and the exe is stripped. Build outputs are uploaded as an artifact with SHA-256 sums.
-- **Release:** pushing a tag such as `v1.1.1` (must match the source version) publishes a GitHub release with those files.
-Changes are listed in `JESUSSAVES_CHANGELOG_v1.1.1.md`.
+- **Release:** pushing a tag such as `v1.1.2` (must match the source version) publishes a GitHub release with those files.
+Changes are listed in `JESUSSAVES_CHANGELOG_v1.1.2.md`.
 
 ## Licence
 

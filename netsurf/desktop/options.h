@@ -151,11 +151,11 @@ NSOPTION_STRING(cookie_jar, NULL)
 NSOPTION_STRING(homepage_url, NULL)
 
 /** search web from url bar */
-/* JESUSSAVES-v1.1.1 FIX: default on, otherwise plain words typed in the URL bar were
+/* JESUSSAVES-v1.1.2 FIX: default on, otherwise plain words typed in the URL bar were
  * rejected and never reached DuckDuckGo */
 NSOPTION_BOOL(search_url_bar, true)
 
-/* JESUSSAVES-v1.1.1: scripture features (see desktop/scripture.h) */
+/* JESUSSAVES-v1.1.2: scripture features (see desktop/scripture.h) */
 /** Open Bible references typed in the URL bar (e.g. John 3:16) as NKJV passages on Bible Gateway */
 NSOPTION_BOOL(scripture_urlbar, true)
 /** Show the KJV text in the status bar when hovering a link to a Bible reference */

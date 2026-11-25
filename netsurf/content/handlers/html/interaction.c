@@ -1083,7 +1083,7 @@ static bool is_javascript_navigate_url(nsurl *url)
 
 
 /**
- * JESUSSAVES-v1.1.1: gather the visible text of a link (bounded) so that
+ * JESUSSAVES-v1.1.2: gather the visible text of a link (bounded) so that
  * a link reading "John 3:16" can show the verse when hovered.
  *
  * \param box	box to collect from (own text, then children)
@@ -1164,7 +1164,7 @@ link_mouse_action(html_content *html,
 
 	mas->result.status = status_buffer;
 
-	/* JESUSSAVES-v1.1.1: verse preview.  If the link text is a Bible
+	/* JESUSSAVES-v1.1.2: verse preview.  If the link text is a Bible
 	 * reference (or the link URL contains one) show the KJV text in the
 	 * status bar instead of the bare URL. */
 	if (nsoption_bool(scripture_preview) && mas->link.box != NULL) {

@@ -1,4 +1,4 @@
-/* JesusSaves v1.1.1 - native unit test for desktop/scripture.c.  Build and run from netsurf/:
+/* JesusSaves v1.1.2 - native unit test for desktop/scripture.c.  Build and run from netsurf/:
  *   gcc -fsanitize=address,undefined -I. -o /tmp/t ../tools/test_scripture.c desktop/scripture.c desktop/scripture_kjv.c -lz && /tmp/t */
 #include <stdlib.h>
 #include <stdio.h>

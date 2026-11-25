@@ -56,7 +56,7 @@ nsws_init_resource(const char *resource_path)
 	if (pathv == NULL)
 		return NULL;
 
-	/* JESUSSAVES-v1.1.1 AUDIT-FIX W1: the buffer was unchecked, the module
+	/* JESUSSAVES-v1.1.2 AUDIT-FIX W1: the buffer was unchecked, the module
 	 * name could be returned truncated and unterminated (a long install
 	 * path), and strncat() was bounded by MAX_PATH instead of by the space
 	 * left, so a long path overflowed the heap block. */
@@ -97,7 +97,7 @@ nsws_init_resource(const char *resource_path)
 /**
  * Stand-in for POSIX realpath() on Windows.
  *
- * JESUSSAVES-v1.1.1 AUDIT-FIX W2: the old stub used strncpy(dst, src,
+ * JESUSSAVES-v1.1.2 AUDIT-FIX W2: the old stub used strncpy(dst, src,
  * PATH_MAX), which does not terminate the result when the source is
  * PATH_MAX characters or longer. The copy is now always terminated and a
  * too-long path is reported as failure (NULL).
@@ -138,7 +138,7 @@ static bool nsws_append(char *dst, size_t cap, const char *src)
  * environment variable), then the path specified in
  * NETSURF_WINDOWS_RESPATH in the Makefile then .\\res\\ [windows paths]
  *
- * JESUSSAVES-v1.1.1 AUDIT-FIX W3: every strcpy()/strcat() into the PATH_MAX
+ * JESUSSAVES-v1.1.2 AUDIT-FIX W3: every strcpy()/strcat() into the PATH_MAX
  * stack buffer and into the caller's buffer (HOME, NETSURFRES and the file
  * name are all caller/environment controlled) is now length checked; an
  * unset HOME no longer reaches snprintf("%s"); a failed getcwd() no longer

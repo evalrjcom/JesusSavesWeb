@@ -54,7 +54,7 @@ static const char *fetch_resource_paths[] = {
 	"quirks.css",
 	"user.css",
 	"credits.html",
-	"changelog.html", /* JESUSSAVES-v1.1.1 */
+	"changelog.html", /* JESUSSAVES-v1.1.2 */
 	"licence.html",
 	"welcome.html",
 	"favicon.ico",

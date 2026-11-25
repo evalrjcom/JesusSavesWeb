@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# make_welcome.py v1.1.1 - generates netsurf/resources/<lang>/welcome.html for JesusSaves
+# make_welcome.py v1.1.2 - generates netsurf/resources/<lang>/welcome.html for JesusSaves
 # Usage: python3 make_welcome.py <netsurf source dir>
 #
 # One template, six languages (en de it ja nl zh_CN). Interface text is translated;
 # Scripture is quoted from the public-domain King James Version in every language
 # (the link targets are English-language sites). Search form: DuckDuckGo (HTML endpoint).
 #
-# Link policy (v1.1.1): sites that teach Jesus Christ as the only way of salvation
+# Link policy (v1.1.2): sites that teach Jesus Christ as the only way of salvation
 # (John 14:6, Acts 4:12): Bible reference sites, Billy Graham / evangelistic ministries,
 # Baptist bodies, sound-doctrine teaching ministries. No prosperity-gospel sites.
 import html

@@ -276,7 +276,7 @@ static bool fetch_about_credits_handler(struct fetch_about_context *ctx)
 
 
 /**
- * Handler to generate about scheme changelog page (JESUSSAVES-v1.1.1).
+ * Handler to generate about scheme changelog page (JESUSSAVES-v1.1.2).
  *
  * \param ctx The fetcher context.
  * \return true if handled false if aborted.

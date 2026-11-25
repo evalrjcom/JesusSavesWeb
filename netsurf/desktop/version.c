@@ -20,13 +20,13 @@
 
 #include "desktop/version.h"
 
-/* JESUSSAVES-v1.1.1: version is shown as "JesusSaves <netsurf_version>" by the About
+/* JESUSSAVES-v1.1.2: version is shown as "JesusSaves <netsurf_version>" by the About
  * dialogs. JESUSSAVES_BUILD_DATE defaults to the compiler date, so every rebuild
  * is stamped; override with -DJESUSSAVES_BUILD_DATE=\"...\" for reproducible builds. */
 #ifndef JESUSSAVES_BUILD_DATE
 #define JESUSSAVES_BUILD_DATE __DATE__
 #endif
 const char * const netsurf_version =
-	"1.1.1 (based on NetSurf 3.11, modified by the JesusSaves project, built " JESUSSAVES_BUILD_DATE ")";
+	"1.1.2 (based on NetSurf 3.11, modified by the JesusSaves project, built " JESUSSAVES_BUILD_DATE ")";
 const int netsurf_version_major = 3;
 const int netsurf_version_minor = 11;

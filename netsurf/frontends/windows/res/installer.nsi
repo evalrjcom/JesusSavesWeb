@@ -4,7 +4,7 @@
 # show up in a few places.
 # All the other settings can be tweaked by editing the !defines at the top of this script
 
-!define APPNAME "JesusSaves" ; JESUSSAVES-v1.1.1: own install dir / Start menu / uninstall key, never shared with a NetSurf install
+!define APPNAME "JesusSaves" ; JESUSSAVES-v1.1.2: own install dir / Start menu / uninstall key, never shared with a NetSurf install
 !define COMPANYNAME "JesusSaves"
 !define DESCRIPTION "Web Browser"
 
@@ -16,7 +16,7 @@
   !define VERSIONMINOR 1
 !endif
 !ifndef VERSIONBUILD
-  !define VERSIONBUILD 1
+  !define VERSIONBUILD 2
 !endif
 
 # This is the size (in kB) of all the files copied into "Program Files"
@@ -35,7 +35,7 @@
 
 RequestExecutionLevel admin ;Require admin rights on NT6+ (When UAC is turned on)
  
-# JESUSSAVES-v1.1.1: the 64-bit build installs into the native Program Files and writes the
+# JESUSSAVES-v1.1.2: the 64-bit build installs into the native Program Files and writes the
 # native registry view (a 32-bit installer would otherwise use "Program Files (x86)" and WOW6432Node)
 !ifdef WIN64
   InstallDir "$PROGRAMFILES64\${APPNAME}"

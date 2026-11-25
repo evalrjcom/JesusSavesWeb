@@ -6,10 +6,10 @@
 
 VERSION_MAJ := $(shell sed -n '/_major/{s/.* = \([0-9]*\).*/\1/;p;}' desktop/version.c)
 VERSION_MIN := $(shell sed -n '/_minor/{s/.* = \([0-9]*\).*/\1/;p;}' desktop/version.c)
-# JESUSSAVES-v1.1.1: the installer shows the JesusSaves version, not the upstream NetSurf one
+# JESUSSAVES-v1.1.2: the installer shows the JesusSaves version, not the upstream NetSurf one
 JESUSSAVES_VER_MAJ := 1
 JESUSSAVES_VER_MIN := 1
-JESUSSAVES_VER_BLD := 1
+JESUSSAVES_VER_BLD := 2
 # a 64-bit compiler selects the 64-bit install directory / registry view in the installer
 JESUSSAVES_NSIS_ARCH := $(if $(findstring x86_64,$(shell $(CC) -dumpmachine 2>/dev/null)),-DWIN64=1,)
 
@@ -21,12 +21,12 @@ $(eval $(call pkg_config_find_and_add,libcares,Cares))
 $(eval $(call pkg_config_find_and_add,zlib,ZLib))
 
 # libraries for windows API
-# JESUSSAVES-v1.1.1: -lwinpthread provides clock_gettime() for libnsutils (MinGW-w64 has
+# JESUSSAVES-v1.1.2: -lwinpthread provides clock_gettime() for libnsutils (MinGW-w64 has
 # no other source for it); -static -static-libgcc make JesusSaves.exe a fully static
 # executable that needs no DLL besides the ones Windows itself ships.
 LDFLAGS += -lgnurx -lwinpthread -lgdi32 -lcomctl32 -lws2_32 -lmsimg32 -lshlwapi -lcrypt32 -mwindows -static -static-libgcc
 
-# JESUSSAVES-v1.1.1: size and hardening flags.
+# JESUSSAVES-v1.1.2: size and hardening flags.
 #  -Os + function/data sections + --gc-sections drop unused code from the static libraries.
 #  --dynamicbase (ASLR), --high-entropy-va (64-bit ASLR), --nxcompat (DEP) and the stack
 #  protector / FORTIFY checks make memory-corruption bugs much harder to exploit.
@@ -35,7 +35,7 @@ LDFLAGS += -lgnurx -lwinpthread -lgdi32 -lcomctl32 -lws2_32 -lmsimg32 -lshlwapi 
 CFLAGS += -Os -ffunction-sections -fdata-sections -fstack-protector-strong -D_FORTIFY_SOURCE=2
 LDFLAGS += -Wl,--gc-sections -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -Wl,--no-insert-timestamp -lssp
 
-# JESUSSAVES-v1.1.1: strip by default; use the strip that matches the compiler
+# JESUSSAVES-v1.1.2: strip by default; use the strip that matches the compiler
 # (x86_64-w64-mingw32-gcc -> x86_64-w64-mingw32-strip).  Override with STRIP=...
 STRIP := $(patsubst %gcc,%strip,$(lastword $(CC)))
 
@@ -50,7 +50,7 @@ CFLAGS += '-D_WIN32_IE=0x0501'
 #installed resource path
 CFLAGS += '-DNETSURF_WINDOWS_RESPATH="$(NETSURF_WINDOWS_RESPATH)"'
 
-# JESUSSAVES-v1.1.1: no -g in release builds (debug info was ~10 MB of the exe)
+# JESUSSAVES-v1.1.2: no -g in release builds (debug info was ~10 MB of the exe)
 WSCFLAGS := -std=c99 -Dnswin32 -DCURL_STATICLIB -DCARES_STATICLIB
 
 CFLAGS += $(WSCFLAGS)
@@ -84,7 +84,7 @@ S_FRONTEND := main.c window.c gui.c clipboard.c drawable.c plot.c findfile.c \
 # Note this is deliberately *not* expanded here as common and image
 #   are not yet available
 SOURCES = $(S_COMMON) $(S_IMAGE) $(S_BROWSER) $(S_FRONTEND) $(S_RESOURCES)
-EXETARGET := JesusSaves.exe  # JESUSSAVES-v1.1.1
+EXETARGET := JesusSaves.exe  # JESUSSAVES-v1.1.2
 
 # ----------------------------------------------------------------------------
 # Install target

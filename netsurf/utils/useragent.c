@@ -30,7 +30,7 @@
 static const char *core_user_agent_string = NULL;
 
 #ifndef NETSURF_UA_FORMAT_STRING
-#define NETSURF_UA_FORMAT_STRING "Mozilla/5.0 (%s) NetSurf/%d.%d JesusSaves/1.1.1" /* JESUSSAVES-v1.1.1: keeps the NetSurf token for site compatibility */
+#define NETSURF_UA_FORMAT_STRING "Mozilla/5.0 (%s) NetSurf/%d.%d JesusSaves/1.1.2" /* JESUSSAVES-v1.1.2: keeps the NetSurf token for site compatibility */
 #endif
 
 /**

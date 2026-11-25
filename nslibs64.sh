@@ -1,7 +1,7 @@
 #!/bin/bash
 # NetSurf libraries (static) for the JesusSaves Windows x86_64 build, plus the host-side nsgenbind
 set -u
-R=${JS_ROOT:-$HOME/jesussaves-build}   # JesusSaves v1.1.1: portable root
+R=${JS_ROOT:-$HOME/jesussaves-build}   # JesusSaves v1.1.2: portable root
 P=$R/mw64          # target prefix
 H=$R/host          # native host tools prefix
 S=${SRC:-$(cd "$(dirname "$0")" && pwd)}   # source checkout (this directory)

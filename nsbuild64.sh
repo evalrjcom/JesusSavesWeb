@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build JesusSaves.exe (static, x86_64) from the source tree.  JesusSaves v1.1.1
+# Build JesusSaves.exe (static, x86_64) from the source tree.  JesusSaves v1.1.2
 # Usage: ./nsbuild64.sh [make targets, default: all]   e.g. package-windows libnetsurf
 set -o pipefail
 R=${JS_ROOT:-$HOME/jesussaves-build}

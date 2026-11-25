@@ -37,7 +37,7 @@
 
 #define ABOUT_RESPONSE_ID_LICENCE 1
 #define ABOUT_RESPONSE_ID_CREDITS 2
-#define ABOUT_RESPONSE_ID_CHANGELOG 3 /* JESUSSAVES-v1.1.1 */
+#define ABOUT_RESPONSE_ID_CHANGELOG 3 /* JESUSSAVES-v1.1.2 */
 
 
 /**
@@ -88,7 +88,7 @@ nsgtk_about_dialog_response(GtkDialog *dialog,
 		about_open("about:credits");
 		break;
 
-	case ABOUT_RESPONSE_ID_CHANGELOG: /* JESUSSAVES-v1.1.1 */
+	case ABOUT_RESPONSE_ID_CHANGELOG: /* JESUSSAVES-v1.1.2 */
 		about_open("about:changelog");
 		break;
 	}
@@ -149,7 +149,7 @@ void nsgtk_about_dialog_init(GtkWindow *parent)
 	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_CENTER);
 	gtk_box_pack_start(GTK_BOX (vbox), label, FALSE, FALSE, 0);
 
-	/* JESUSSAVES-v1.1.1: credit the upstream project and state that the JesusSaves project modified it */
+	/* JESUSSAVES-v1.1.2: credit the upstream project and state that the JesusSaves project modified it */
 	label = gtk_label_new("JesusSaves is a modified build of NetSurf.\n"
 			      "NetSurf is the work of the NetSurf Developers;\n"
 			      "changes in JesusSaves were made by the JesusSaves project.");

@@ -7,7 +7,7 @@
 
 /**
  * \file
- * JesusSaves v1.1.1: Bible reference parsing, Bible Gateway URLs and an
+ * JesusSaves v1.1.2: Bible reference parsing, Bible Gateway URLs and an
  * offline King James Version (1769, public domain) for verse previews.
  */
 

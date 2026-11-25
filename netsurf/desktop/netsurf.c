@@ -246,7 +246,7 @@ void netsurf_exit(void)
 	NSLOG(netsurf, INFO, "Finalising Web Search");
 	search_web_finalise();
 
-	/* JESUSSAVES-v1.1.1: free the inflated KJV text */
+	/* JESUSSAVES-v1.1.2: free the inflated KJV text */
 	scripture_finalise();
 
 	NSLOG(netsurf, INFO, "Finalising high-level cache");

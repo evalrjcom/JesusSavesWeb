@@ -1,5 +1,5 @@
 #!/bin/bash
-# Fetch the pinned third-party sources for the static Windows build.  JesusSaves v1.1.1
+# Fetch the pinned third-party sources for the static Windows build.  JesusSaves v1.1.2
 # Sources go to $JS_ROOT/deps (default ~/jesussaves-build/deps); existing checkouts are kept.
 set -e
 R=${JS_ROOT:-$HOME/jesussaves-build}

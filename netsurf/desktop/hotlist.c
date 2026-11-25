@@ -965,7 +965,7 @@ static nserror hotlist_generate(void)
 	nserror err;
 	nsurl *url;
 
-	/* JESUSSAVES-v1.1.1: the default bookmarks are a curated set of sites that
+	/* JESUSSAVES-v1.1.2: the default bookmarks are a curated set of sites that
 	 * teach Jesus Christ as the only way of salvation (John 14:6, Acts 4:12):
 	 * Bible reference sites, evangelistic ministries (Billy Graham, ChristPath),
 	 * Baptist bodies and sound-doctrine teaching ministries. No prosperity
@@ -1666,7 +1666,7 @@ nserror hotlist_add_entry(nsurl *url, const char *title, bool at_y, int y)
 	enum treeview_relationship rel;
 
 	if (url == NULL) {
-		err = nsurl_create("about:welcome", &url) /* JESUSSAVES-v1.1.1: was the NetSurf site */;
+		err = nsurl_create("about:welcome", &url) /* JESUSSAVES-v1.1.2: was the NetSurf site */;
 		if (err != NSERROR_OK) {
 			return err;
 		}

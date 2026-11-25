@@ -123,7 +123,7 @@ static struct nsgtk_resource_s pixbuf_resource[] = {
 static struct nsgtk_resource_s direct_resource[] = {
 	RES_ENTRY("welcome.html"),
 	RES_ENTRY("credits.html"),
-	RES_ENTRY("changelog.html"), /* JESUSSAVES-v1.1.1 */
+	RES_ENTRY("changelog.html"), /* JESUSSAVES-v1.1.2 */
 	RES_ENTRY("licence.html"),
 	RES_ENTRY("default.css"),
 	RES_ENTRY("adblock.css"),

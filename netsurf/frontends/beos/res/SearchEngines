@@ -1,1 +1,5 @@
-../../../resources/SearchEngines
+# JesusSaves v1.1.2 - web search providers.
+# Format: name|hostname|search URL (%s = search term, %% = literal percent)|favicon URL (may be empty)|
+# DuckDuckGo is the only built-in provider. Its HTML endpoint works without JavaScript.
+# The favicon field is empty on purpose: the bundled search icon is used instead.
+DuckDuckGo|duckduckgo.com|https://html.duckduckgo.com/html/?q=%s||

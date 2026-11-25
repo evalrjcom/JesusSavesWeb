@@ -3075,7 +3075,7 @@ contents_button_clicked_cb(GtkWidget *widget, gpointer data)
 	struct nsgtk_toolbar *tb = (struct nsgtk_toolbar *)data;
 	nserror res;
 
-	res = toolbar_navigate_to_url(tb, "about:welcome"); /* JESUSSAVES-v1.1.1 */
+	res = toolbar_navigate_to_url(tb, "about:welcome"); /* JESUSSAVES-v1.1.2 */
 	if (res != NSERROR_OK) {
 		nsgtk_warning(messages_get_errorcode(res), 0);
 	}
@@ -3096,7 +3096,7 @@ guide_button_clicked_cb(GtkWidget *widget, gpointer data)
 	struct nsgtk_toolbar *tb = (struct nsgtk_toolbar *)data;
 	nserror res;
 
-	res = toolbar_navigate_to_url(tb, "about:changelog"); /* JESUSSAVES-v1.1.1 */
+	res = toolbar_navigate_to_url(tb, "about:changelog"); /* JESUSSAVES-v1.1.2 */
 	if (res != NSERROR_OK) {
 		nsgtk_warning(messages_get_errorcode(res), 0);
 	}
@@ -3118,7 +3118,7 @@ info_button_clicked_cb(GtkWidget *widget, gpointer data)
 	struct nsgtk_toolbar *tb = (struct nsgtk_toolbar *)data;
 	nserror res;
 
-	res = toolbar_navigate_to_url(tb, "about:credits"); /* JESUSSAVES-v1.1.1 */
+	res = toolbar_navigate_to_url(tb, "about:credits"); /* JESUSSAVES-v1.1.2 */
 	if (res != NSERROR_OK) {
 		nsgtk_warning(messages_get_errorcode(res), 0);
 	}

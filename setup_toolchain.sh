@@ -1,5 +1,5 @@
 #!/bin/bash
-# Toolchain glue for the static Windows build.  JesusSaves v1.1.1
+# Toolchain glue for the static Windows build.  JesusSaves v1.1.2
 #  - $JS_ROOT/mwbin: unversioned names for the win32-thread-model mingw-w64 tools (NetSurf's
 #    windows Makefile.tools looks for them via GCCSDK_INSTALL_CROSSBIN)
 #  - regex.h / libgnurx.a shim on top of TRE (run after deps64.sh)

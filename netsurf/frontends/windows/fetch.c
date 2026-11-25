@@ -43,7 +43,7 @@ static const char *fetch_filetype(const char *unix_path)
 {
 	int l;
 	if (unix_path == NULL) {
-		return "text/html"; /* JESUSSAVES-v1.1.1: defensive, never dereference NULL */
+		return "text/html"; /* JESUSSAVES-v1.1.2: defensive, never dereference NULL */
 	}
 	NSLOG(netsurf, INFO, "unix path %s", unix_path);
 	l = (int)strlen(unix_path);
@@ -63,7 +63,7 @@ static const char *fetch_filetype(const char *unix_path)
 		return "image/svg";
 	if (2 < l && strcasecmp(unix_path + l - 3, "bmp") == 0)
 		return "image/x-ms-bmp";
-	/* JESUSSAVES-v1.1.1: plain text, WebP and icons were served as text/html */
+	/* JESUSSAVES-v1.1.2: plain text, WebP and icons were served as text/html */
 	if (2 < l && strcasecmp(unix_path + l - 3, "txt") == 0)
 		return "text/plain";
 	if (3 < l && strcasecmp(unix_path + l - 4, "webp") == 0)

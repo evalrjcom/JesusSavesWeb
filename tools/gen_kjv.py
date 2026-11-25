@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""JesusSaves v1.1.1 - generate netsurf/desktop/scripture_kjv.c from the KJV verse JSON.
+"""JesusSaves v1.1.2 - generate netsurf/desktop/scripture_kjv.c from the KJV verse JSON.
 
 Source text: npm package "kjv" (verses-1769.json, public-domain 1769 King James text,
 packaging released into the public domain).  Usage:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# make_logo.py v1.1.1 - generates the JesusSaves logo set (banner, icons, xpm, ico)
+# make_logo.py v1.1.2 - generates the JesusSaves logo set (banner, icons, xpm, ico)
 # Original artwork (cross and wave) drawn procedurally (no upstream NetSurf artwork reused).
 import math, sys, os
 from PIL import Image, ImageDraw, ImageFont, ImageChops

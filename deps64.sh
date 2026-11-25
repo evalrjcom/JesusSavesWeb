@@ -1,7 +1,7 @@
 #!/bin/bash
 # Third-party static dependencies for the JesusSaves Windows (x86_64) build
 set -ex
-# JesusSaves v1.1.1: all paths hang off JS_ROOT (default ~/jesussaves-build) so the same
+# JesusSaves v1.1.2: all paths hang off JS_ROOT (default ~/jesussaves-build) so the same
 # scripts work locally and in GitHub Actions.  Sources come from fetch_deps.sh.
 R=${JS_ROOT:-$HOME/jesussaves-build}
 export P=${P:-$R/mw64}
@@ -56,7 +56,7 @@ if step tre; then
     && make -j2 -C lib && make -C lib install && make -C include install 2>/dev/null; true
   done_ tre
 fi
-# JesusSaves v1.1.1: fail loudly if anything is missing (set -e does not see failures inside the
+# JesusSaves v1.1.2: fail loudly if anything is missing (set -e does not see failures inside the
 # `if step ...; then a && b && c; fi` chains above)
 for f in lib/libz.a lib/libssl.a lib/libcrypto.a lib/libcares.a lib/libexpat.a lib/libpng.a \
          lib/libjpeg.a lib/libcurl.a lib/libtre.a lib/pkgconfig/libcurl.pc lib/pkgconfig/libssl.pc \

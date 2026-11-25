@@ -53,7 +53,7 @@ static struct search_web_ctx_s {
 
 	hlcache_handle *default_ico_handle;
 
-	/* JESUSSAVES-v1.1.1 AUDIT-FIX S1: the provider fields point into this
+	/* JESUSSAVES-v1.1.2 AUDIT-FIX S1: the provider fields point into this
 	 * one block; it is owned here instead of being recovered through
 	 * providers[0].name (which broke as soon as the file started with a
 	 * blank line, a comment or a byte-order mark). */
@@ -61,7 +61,7 @@ static struct search_web_ctx_s {
 } search_web_ctx;
 
 
-/* JESUSSAVES-v1.1.1: DuckDuckGo (HTML endpoint, works without JavaScript) is the
+/* JESUSSAVES-v1.1.2: DuckDuckGo (HTML endpoint, works without JavaScript) is the
  * built-in fallback and the only shipped provider. The favicon field is left
  * empty on purpose: the bundled search icon is used, so no request is made
  * to the provider just to draw an icon. */
@@ -141,7 +141,7 @@ read_providers(const char *fname,
 /**
  * parse search providers from a memory block.
  *
- * JESUSSAVES-v1.1.1 AUDIT-FIX S2: rewritten. The old parser counted newlines to
+ * JESUSSAVES-v1.1.2 AUDIT-FIX S2: rewritten. The old parser counted newlines to
  * size the array, so a blank line, a CRLF file, a file without a final newline
  * or one malformed line made the whole file fail (or scanned into the next
  * line's fields). Now: blank lines and '#' comments are skipped, CR/LF and a
@@ -303,7 +303,7 @@ make_search_nsurl(struct search_provider *provider,
 	eterm_len = strlen(eterm);
 	tmpl_len = strlen(searchstr);
 
-	/* JESUSSAVES-v1.1.1 AUDIT-FIX S3: size the buffer for EVERY %s marker.
+	/* JESUSSAVES-v1.1.2 AUDIT-FIX S3: size the buffer for EVERY %s marker.
 	 * The old code allocated room for one substitution, so a template with
 	 * two markers overflowed the heap. "%%" is now a literal percent sign
 	 * (the shipped Wikipedia line was written as "%%3A" and sent "%%"). */
@@ -394,7 +394,7 @@ search_web_ico_callback(hlcache_handle *ico,
 /**
  * Decide whether free text typed in the URL bar looks like an address.
  *
- * JESUSSAVES-v1.1.1 AUDIT-FIX S4: the core used to accept ANY text that
+ * JESUSSAVES-v1.1.2 AUDIT-FIX S4: the core used to accept ANY text that
  * "https://" + text could parse, so a single word such as "jesus" or a phrase
  * such as "John 3:16" was sent to a host of that name and the web search was
  * never reached. Text is now an address only if it has no white space or
@@ -441,7 +441,7 @@ search_web_omni(const char *term,
 		return NSERROR_BAD_PARAMETER;
 	}
 
-	/* JESUSSAVES-v1.1.1: a Bible reference such as "John 3:16" or "1 Cor 13"
+	/* JESUSSAVES-v1.1.2: a Bible reference such as "John 3:16" or "1 Cor 13"
 	 * opens the passage (NKJV on Bible Gateway; preview stays KJV) instead of being searched or treated as a host.
 	 * Checked before the address test because "john3:16" would otherwise
 	 * look like host:port. */
@@ -576,7 +576,7 @@ nserror search_web_select_provider(int selection)
 
 
 	/* if the providers icon has not been retrieved get it now
-	 * (JESUSSAVES-v1.1.1: an empty favicon field means "use the default icon") */
+	 * (JESUSSAVES-v1.1.2: an empty favicon field means "use the default icon") */
 	if (provider->ico_handle == NULL && provider->ico[0] != '\0') {
 		nsurl *icon_nsurl;
 		nserror ret;
@@ -681,7 +681,7 @@ nserror search_web_init(const char *provider_fname)
 				      &search_web_ctx.providers,
 				      &search_web_ctx.providers_count);
 		if (ret != NSERROR_OK) {
-			/* JESUSSAVES-v1.1.1 AUDIT-FIX S5: an unusable file now falls
+			/* JESUSSAVES-v1.1.2 AUDIT-FIX S5: an unusable file now falls
 			 * back to the built-in list instead of failing start-up */
 			NSLOG(netsurf, WARNING, "search providers file unusable, using built-in list");
 			free(providers);

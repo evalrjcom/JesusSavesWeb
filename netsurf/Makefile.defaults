@@ -103,15 +103,15 @@ NETSURF_USE_UTF8PROC := YES
 
 # Enable stripping the NetSurf binary
 # Valid options: YES, NO
-# JESUSSAVES-v1.1.1: strip release binaries by default
+# JESUSSAVES-v1.1.2: strip release binaries by default
 NETSURF_STRIP_BINARY := YES
 
 # Template used for constructing the User Agent: string.  The first
 # replacement is OS, the next two are major/minor version.
 # Note that the "Mozilla/5.0" prefix is a requirement to enable modern
 # web standards on many websites. It should not be removed or modified.
-# JESUSSAVES-v1.1.1: keep the NetSurf token (site compatibility) and add JesusSaves
-NETSURF_UA_FORMAT_STRING := "Mozilla/5.0 (%s) NetSurf/%d.%d JesusSaves/1.1.1"
+# JESUSSAVES-v1.1.2: keep the NetSurf token (site compatibility) and add JesusSaves
+NETSURF_UA_FORMAT_STRING := "Mozilla/5.0 (%s) NetSurf/%d.%d JesusSaves/1.1.2"
 
 # Default home page, if one is not defined by the user.  Note that this
 # option does not apply to the RISC OS version, as it has its own local

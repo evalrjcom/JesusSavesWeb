@@ -1951,7 +1951,7 @@ static int fetch_curl_fdset(lwc_string *scheme, fd_set *read_set,
 /**
  * Pin name resolution to Cloudflare for Families.
  *
- * JESUSSAVES-v1.1.1: every lookup made by the fetcher goes to Cloudflare's
+ * JESUSSAVES-v1.1.2: every lookup made by the fetcher goes to Cloudflare's
  * malware- and adult-content-filtering resolvers 1.1.1.3 and 1.0.0.3. There is
  * deliberately no preference, option, environment variable or command line
  * switch that changes this; the addresses are compile-time constants and are
@@ -2104,7 +2104,7 @@ nserror fetch_curl_register(void)
 	SETOPT(CURLOPT_NOSIGNAL, 1L);
 	SETOPT(CURLOPT_CONNECTTIMEOUT, nsoption_uint(curl_fetch_timeout));
 
-	/* JESUSSAVES-v1.1.1: fixed Cloudflare 1.1.1.3 / 1.0.0.3 resolvers. Fail
+	/* JESUSSAVES-v1.1.2: fixed Cloudflare 1.1.1.3 / 1.0.0.3 resolvers. Fail
 	 * closed: without them the fetcher is not registered at all. */
 	code = fetch_curl_pin_dns(fetch_blank_curl);
 	if (code != CURLE_OK) {
@@ -2128,7 +2128,7 @@ nserror fetch_curl_register(void)
 	}
 
 #ifdef _WIN32
-	/* JESUSSAVES-v1.1.1 FIX: a static OpenSSL build has no system CA
+	/* JESUSSAVES-v1.1.2 FIX: a static OpenSSL build has no system CA
 	 * location, so every https:// site failed with "Privacy error" when
 	 * ca-bundle.crt was missing or too old (new roots).  Also trust the
 	 * Windows certificate store; the bundle (if found) is still used. */

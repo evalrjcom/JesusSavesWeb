@@ -132,7 +132,7 @@ static nserror windows_nsurl_to_path(struct nsurl *url, char **path_out)
 	if (lwc_string_caseless_isequal(scheme, corestring_lwc_file,
 					&match) != lwc_error_ok)
 	{
-		lwc_string_unref(scheme); /* JESUSSAVES-v1.1.1 AUDIT-FIX W10: was leaked */
+		lwc_string_unref(scheme); /* JESUSSAVES-v1.1.2 AUDIT-FIX W10: was leaked */
 		return NSERROR_BAD_PARAMETER;
 	}
 	lwc_string_unref(scheme);
@@ -212,7 +212,7 @@ static nserror windows_path_to_nsurl(const char *path, struct nsurl **url_out)
 		return NSERROR_BAD_PARAMETER;
 	}
 
-	/* JESUSSAVES-v1.1.1 AUDIT-FIX W12: the path was pasted into the URL
+	/* JESUSSAVES-v1.1.2 AUDIT-FIX W12: the path was pasted into the URL
 	 * unescaped (the old "@todo check if this should be url escaping"), so
 	 * a file called "a#1.html", "what?.html" or "100%.html" opened a
 	 * different resource -- the same defect fixed for the GTK front end in

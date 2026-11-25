@@ -1,4 +1,4 @@
-# JesusSaves v1.1.1 - CI: invariants, scripture tests, static Windows x86_64 build, release on tag.
+# JesusSaves v1.1.2 - CI: invariants, scripture tests, static Windows x86_64 build, release on tag.
 name: Build and test
 
 on:

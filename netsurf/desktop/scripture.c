@@ -7,7 +7,7 @@
 
 /**
  * \file
- * JesusSaves v1.1.1: Bible reference parser and offline KJV lookup.
+ * JesusSaves v1.1.2: Bible reference parser and offline KJV lookup.
  */
 
 #include <ctype.h>

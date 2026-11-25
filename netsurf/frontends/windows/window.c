@@ -1251,17 +1251,17 @@ nsws_window_command(HWND hwnd,
 
 	case IDM_HELP_CONTENTS:
 		nsws_window_go(hwnd,
-			       "about:welcome"); /* JESUSSAVES-v1.1.1 */
+			       "about:welcome"); /* JESUSSAVES-v1.1.2 */
 		break;
 
 	case IDM_HELP_GUIDE:
 		nsws_window_go(hwnd,
-			       "about:changelog"); /* JESUSSAVES-v1.1.1 */
+			       "about:changelog"); /* JESUSSAVES-v1.1.2 */
 		break;
 
 	case IDM_HELP_INFO:
 		nsws_window_go(hwnd,
-			       "about:credits"); /* JESUSSAVES-v1.1.1 */
+			       "about:credits"); /* JESUSSAVES-v1.1.2 */
 		break;
 
 	case IDM_HELP_ABOUT:
@@ -1280,7 +1280,7 @@ nsws_window_command(HWND hwnd,
 		char addr[len + 1];
 		char *term;
 
-		/* JESUSSAVES-v1.1.1 AUDIT-FIX: the VLA above is on the stack;
+		/* JESUSSAVES-v1.1.2 AUDIT-FIX: the VLA above is on the stack;
 		 * refuse absurd lengths instead of overflowing it */
 		if (len < 0 || len > 8192) {
 			break;
@@ -1302,7 +1302,7 @@ nsws_window_command(HWND hwnd,
 			break;
 		}
 
-		/* JESUSSAVES-v1.1.1 FIX: the Windows address bar never used the
+		/* JESUSSAVES-v1.1.2 FIX: the Windows address bar never used the
 		 * web-search core, so plain words were rejected as bad URLs and
 		 * DuckDuckGo search (and Bible references) never ran from it.
 		 * Addresses still navigate directly; verses open as NKJV passages on Bible Gateway;
