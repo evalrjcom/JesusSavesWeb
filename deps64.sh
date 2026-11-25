@@ -22,7 +22,7 @@ if step zlib; then
   CHOST=$T ./configure --prefix=$P --static && make -j2 && make install && done_ zlib
 fi
 if step openssl; then
-  cd $D/openssl && ./Configure mingw64 no-shared no-tests --cross-compile-prefix=$T- --prefix=$P --openssldir=$P/ssl && make -j2 build_libs && make install_dev && { [ -d $P/lib64 ] && { cp -f $P/lib64/*.a $P/lib/; mkdir -p $P/lib/pkgconfig; cp -f $P/lib64/pkgconfig/*.pc $P/lib/pkgconfig/; }; true; } && done_ openssl
+  cd $D/openssl && env -u CC -u AR -u RANLIB -u STRIP -u RC ./Configure mingw64 no-shared no-tests --cross-compile-prefix=$T- --prefix=$P --openssldir=$P/ssl && make -j2 build_libs && make install_dev && { [ -d $P/lib64 ] && { cp -f $P/lib64/*.a $P/lib/; mkdir -p $P/lib/pkgconfig; cp -f $P/lib64/pkgconfig/*.pc $P/lib/pkgconfig/; }; true; } && done_ openssl
 fi
 if step cares; then
   cd $D/c-ares && rm -rf bld && cmake -S . -B bld $TC -DCARES_STATIC=ON -DCARES_SHARED=OFF -DCARES_BUILD_TOOLS=OFF -DCARES_BUILD_TESTS=OFF && cmake --build bld -j2 && cmake --install bld && done_ cares
@@ -39,6 +39,7 @@ fi
 if step curl; then
   cd $D/curl && { [ -f configure ] || autoreconf -fi; }
   rm -rf bld && mkdir bld && cd bld
+  LIBS="-lws2_32 -lgdi32 -lcrypt32 -ladvapi32 -luser32 -lbcrypt -liphlpapi" CPPFLAGS="-DCARES_STATICLIB" \
   ../configure --host=$T --prefix=$P --disable-shared --enable-static \
     --with-openssl=$P --enable-ares=$P --with-zlib=$P \
     --without-libpsl --without-nghttp2 --without-nghttp3 --without-ngtcp2 --without-brotli --without-zstd \
