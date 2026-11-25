@@ -76,7 +76,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             g++-mingw-w64-x86-64-win32 binutils-mingw-w64-x86-64 win-iconv-mingw-w64-dev nsis \
             cmake autoconf automake libtool gettext autopoint flex bison pkg-config \
-            python3 git make gcc zlib1g-dev
+            python3 git make gcc zlib1g-dev gperf perl xsltproc xxd
 
       # Third-party libraries (OpenSSL, curl, c-ares, ...) take most of the time: cache them.
       - name: Restore dependency cache
