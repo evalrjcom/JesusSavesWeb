@@ -1,9 +1,11 @@
 #!/bin/bash
 # NetSurf libraries (static) for the JesusSaves Windows x86_64 build, plus the host-side nsgenbind
 set -u
-P=/home/claude/mw64          # target prefix
-H=/home/claude/host          # native host tools prefix
-S=${SRC:-$HOME/jesussaves-3.11_v1.1.1}
+R=${JS_ROOT:-$HOME/jesussaves-build}   # JesusSaves v1.1.1: portable root
+P=$R/mw64          # target prefix
+H=$R/host          # native host tools prefix
+S=${SRC:-$(cd "$(dirname "$0")" && pwd)}   # source checkout (this directory)
+mkdir -p $R/build
 T=x86_64-w64-mingw32
 mkdir -p $H $P
 export PKG_CONFIG_LIBDIR=$P/lib/pkgconfig PKG_CONFIG_PATH=
@@ -20,6 +22,6 @@ export CFLAGS="-O2 -DXML_STATIC -DCURL_STATICLIB -DCARES_STATICLIB -I$P/include"
 export LDFLAGS="-L$P/lib"
 for lib in libwapcaplet libparserutils libhubbub libcss libdom libnsbmp libnsgif librosprite libsvgtiny libnsutils libnspsl libnslog libutf8proc; do
   log "$lib"
-  (cd $S/$lib && make clean >/dev/null 2>&1; make -j2 PREFIX=$P NSSHARED=$P/share/netsurf-buildsystem install) > /home/claude/build/lib-$lib.log 2>&1 || { echo "FAILED: $lib (see lib-$lib.log)"; tail -15 /home/claude/build/lib-$lib.log; exit 1; }
+  (cd $S/$lib && make clean >/dev/null 2>&1; make -j2 PREFIX=$P NSSHARED=$P/share/netsurf-buildsystem install) > $R/build/lib-$lib.log 2>&1 || { echo "FAILED: $lib (see $R/build/lib-$lib.log)"; tail -15 $R/build/lib-$lib.log; exit 1; }
 done
 echo NSLIBS64-DONE

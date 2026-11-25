@@ -1,14 +1,17 @@
 #!/bin/bash
 # Third-party static dependencies for the JesusSaves Windows (x86_64) build
 set -ex
-export P=${P:-/home/claude/mw64}
+# JesusSaves v1.1.1: all paths hang off JS_ROOT (default ~/jesussaves-build) so the same
+# scripts work locally and in GitHub Actions.  Sources come from fetch_deps.sh.
+R=${JS_ROOT:-$HOME/jesussaves-build}
+export P=${P:-$R/mw64}
 T=x86_64-w64-mingw32
 export CC=$T-gcc AR=$T-ar RANLIB=$T-ranlib STRIP=$T-strip RC=$T-windres
 export PKG_CONFIG_LIBDIR=$P/lib/pkgconfig PKG_CONFIG_PATH=
 export CFLAGS="-O2 -g0" 
 mkdir -p $P/include $P/lib
-D=/home/claude/deps
-B=/home/claude/build/out64; mkdir -p $B
+D=$R/deps
+B=$R/build/out64; mkdir -p $B
 TC="-DCMAKE_SYSTEM_NAME=Windows -DCMAKE_SYSTEM_PROCESSOR=x86_64 -DCMAKE_C_COMPILER=$T-gcc -DCMAKE_RC_COMPILER=$T-windres -DCMAKE_FIND_ROOT_PATH=$P -DCMAKE_INSTALL_PREFIX=$P -DCMAKE_BUILD_TYPE=Release"
 
 step() { [ -f $B/.done-$1 ] && { echo "skip $1"; return 1; }; return 0; }
